@@ -30,7 +30,7 @@ export const Results = () => {
     }, [category]);
 
     return (
-        <section className="album py-5 bg-secondary bg-opacity-60">
+        <section className="album py-5 bg-secondary bg-opacity-60" data-testid='results'>
             <div className="container">
                 <div className="row rows-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     {

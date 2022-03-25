@@ -4,7 +4,7 @@ export const Card = ({category, data}) => {
 
     if(category === 'films') {
         return (
-            <div className="col">
+            <div className="col" data-testid='card'>
                 <div className="card shadown-sm">
                     <div className="card-body">
                         <p><b>Title: </b>{data.title}</p>
@@ -17,7 +17,7 @@ export const Card = ({category, data}) => {
         )
     } else if (category === 'people') {
         return (
-            <div className="col">
+            <div className="col" data-testid='card'>
                 <div className="card shadown-sm">
                     <div className="card-body">
                         <p><b>Name: </b>{data.name}</p>
@@ -30,7 +30,7 @@ export const Card = ({category, data}) => {
         )
     } else if (category === 'starships') {
         return (
-            <div className="col">
+            <div className="col" data-testid='card'>
                 <div className="card shadown-sm">
                     <div className="card-body">
                         <p><b>Name: </b>{data.name}</p>
@@ -44,7 +44,7 @@ export const Card = ({category, data}) => {
         )
     } else if (category === 'vehicles') {
         return (
-            <div className="col">
+            <div className="col" data-testid='card'>
                 <div className="card shadown-sm">
                     <div className="card-body">
                         <p><b>Name: </b>{data.name}</p>
@@ -58,7 +58,7 @@ export const Card = ({category, data}) => {
         )
     } else if (category === 'species') {
         return (
-            <div className="col">
+            <div className="col" data-testid='card'>
                 <div className="card shadown-sm">
                     <div className="card-body">
                         <p><b>Name: </b>{data.name}</p>
@@ -70,9 +70,9 @@ export const Card = ({category, data}) => {
                 </div>
             </div>
         )
-    } else {
+    } else if (category === 'planets') {
         return (
-            <div className="col">
+            <div className="col" data-testid='card'>
                 <div className="card shadown-sm">
                     <div className="card-body">
                         <p><b>Name: </b>{data.name}</p>
@@ -80,6 +80,16 @@ export const Card = ({category, data}) => {
                         <p><b>Population: </b>{data.population}</p>
                         <p><b>Gravity: </b>{data.gravity}</p>
                         <p><b>Terrain: </b>{data.terrain}</p>
+                    </div>
+                </div>
+            </div>
+        )
+    } else {
+        return (
+            <div className="col" data-testid='card'>
+                <div className="card shadown-sm">
+                    <div className="card-body">
+                        <h1>Test Card</h1>
                     </div>
                 </div>
             </div>

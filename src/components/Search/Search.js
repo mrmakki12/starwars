@@ -11,8 +11,6 @@ export const Search = () => {
 
     const [category, setCategory] = useState('films');
 
-    const [searchTerm, setSearchTerm] = useState('');
-
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(setStoreCategory(category));
