@@ -3,14 +3,11 @@ import React, {useEffect, useState} from "react";
 import { Card } from '../Card/Card.js';
 // import search term/ category
 import { useSelector } from "react-redux";
-import { selectStoreCategory, selectStoreSearch } from "../Search/searchSlice";
+import { selectStoreCategory } from "../Search/searchSlice";
 // api
 import StarwarsAPI from "../../Api/StarwarsAPI";
 
 export const Results = () => {
-
-    // search term
-    const searchTerm = useSelector(selectStoreSearch);
 
     // category 
     const category = useSelector(selectStoreCategory);
@@ -29,6 +26,7 @@ export const Results = () => {
             }
         }
         fetchData();
+        console.log(results)
     }, [category]);
 
     return (
@@ -37,7 +35,7 @@ export const Results = () => {
                 <div className="row rows-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     {
                         results.map((result, index) => {
-                            return <Card key={index}/>
+                            return <Card key={index} category={category} data={result}/>
                         })
                     }
                 </div>

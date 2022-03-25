@@ -15,11 +15,6 @@ const searchSlice = createSlice({
             const category = action.payload;
             state.category = category;
         },
-
-        setStoreSearchTerm: (state, action) => {
-            const   searchTerm   = action.payload;
-            state.searchTerm = searchTerm;
-        }
     }
 });
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // dispatcher
 import { useDispatch } from "react-redux";
 // slice methods
-import { setStoreCategory, setStoreSearchTerm } from "./searchSlice";
+import { setStoreCategory } from "./searchSlice";
 
 export const Search = () => {
 
@@ -15,7 +15,6 @@ export const Search = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(setStoreSearchTerm(searchTerm));
         dispatch(setStoreCategory(category));
     }
 
@@ -35,7 +34,6 @@ export const Search = () => {
                             <option value='starships'>Starships</option>
                             <option value='vehicles'>Vehicles</option>
                         </select>
-                        <input type='text' value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
                         <button type="submit" onClick={(e) => handleSubmit(e)}>Search!</button>
                     </div>
                 </div>
