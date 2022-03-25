@@ -4,22 +4,31 @@ const searchSlice = createSlice({
 
     name: 'search',
 
-    initialState: '',
+    initialState: {
+        category: 'films',
+        searchTerm: ''
+    },
 
     reducers: {
         // change category
-        setCategory: (state, action) => {
+        setStoreCategory: (state, action) => {
             const category = action.payload;
-            state = category;
+            state.category = category;
+        },
+
+        setStoreSearchTerm: (state, action) => {
+            const   searchTerm   = action.payload;
+            state.searchTerm = searchTerm;
         }
     }
 });
 
 // selector
-export const selectSearch = (state) => state.search;
+export const selectStoreSearch = (state) => state.search.searchTerm;
+export const selectStoreCategory = (state) => state.search.category
 
 // actions
-export const { setCategory } = searchSlice.actions;
+export const { setStoreCategory, setStoreSearchTerm } = searchSlice.actions;
 
 // reducer
 export default searchSlice.reducer;

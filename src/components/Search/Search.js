@@ -1,11 +1,22 @@
 import React, { useState } from "react";
+// dispatcher
+import { useDispatch } from "react-redux";
+// slice methods
+import { setStoreCategory, setStoreSearchTerm } from "./searchSlice";
 
 export const Search = () => {
 
+    // dispatch actions to store
+    const dispatch = useDispatch();
+
     const [category, setCategory] = useState('films');
 
-    const handleSubmit = () => {
+    const [searchTerm, setSearchTerm] = useState('');
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(setStoreSearchTerm(searchTerm));
+        dispatch(setStoreCategory(category));
     }
 
     return (
@@ -17,15 +28,15 @@ export const Search = () => {
                 <div>
                     <div>
                         <select onChange={(e) => setCategory(e.target.value)}>
-                            <option value='films' selected>Films</option>
+                            <option value='films' defaultValue={'films'}>Films</option>
                             <option value='people'>People</option>
                             <option value='planets'>Planets</option>
                             <option value='species'>Species</option>
                             <option value='starships'>Starships</option>
                             <option value='vehicles'>Vehicles</option>
                         </select>
-                        <input type='text'></input>
-                        <button type="submit">Search!</button>
+                        <input type='text' value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
+                        <button type="submit" onClick={(e) => handleSubmit(e)}>Search!</button>
                     </div>
                 </div>
             </div>
